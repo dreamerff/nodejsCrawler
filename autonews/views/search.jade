@@ -1,0 +1,104 @@
+extends layout
+
+block css
+    link(rel='stylesheet', href='/stylesheets/search.css')
+    link(rel='stylesheet', href='/javascripts/dropload/dropload.css')
+block content
+    form.searchbox(action="javascript:void(0)")
+       i.icon-search
+       input(type="search",placeholder="搜索新闻")#keyword
+    ul.newslist
+      
+
+    div.data-loading(data-page="1") 
+        i
+        span="正在努力加载"
+block script
+
+    script.
+        function stripHTML (str) {
+            return str.replace(/<style(?:.|\s)*?\/style>/g,"").replace(/<script(?:.|\s)*?\/script>/g,"").replace(/<(?:.|\s)*?>/g,"");
+        }
+       
+
+        var $win = $(window);
+        var keyword ='';
+
+        $("#keyword").on('keypress',function(e) {  
+                var keycode = e.keyCode;  
+                keyword= $(this).val();  
+                if(keycode=='13') {  
+                    e.preventDefault();    
+                    getNews(1);
+                }  
+         });  
+
+         $win.on('scroll', throttle(function() {
+
+            var scrollHeight = $win.scrollTop(),
+                windowHeight = $win.height(),
+                docHeight = $(document.body).height() - 50;
+              
+            prevScroll = scrollHeight;
+
+            if (scrollHeight + windowHeight > docHeight) {
+                var $loadMore = $('.data-loading'),
+                    page = $loadMore.data('page');
+                
+                page++;
+               
+                getNews(page);
+            }
+
+
+        }, 100));
+
+
+        var isLoading = false;
+        function getNews(page){
+            
+            if (isLoading) return;
+            isLoading = true;
+           
+            var $loadMore = $('.data-loading');
+
+            $.getJSON('/searchbykey?page=' + page + '&k=' + keyword, function(result) {
+               isLoading = false;
+               if(result){
+                   var count = result.newslist.length;
+                   var html = '';
+                
+                   $.each(result.newslist, function(index, elem){
+                       console.log(elem.abstract);
+                        if(elem.abstract.trim()!='' ){
+                            html += '<li>';
+                            html += '<span class="title">' + elem.title + '</span>';
+                            html += '<a href="/detail/' + elem.id + '">' ;
+                            html += '<div class="abstract" >' + stripHTML(elem.abstract).substr(0, 1000) + '</div>';
+                            html += '</a>';
+                            html += '<div class="operation">' ;
+                            html += '<a class="original-link" href="/detail/' + elem.id +'">查看全文</a>';
+                            html += '<a class="original-link" href="'+ elem.link +'">原链</a>';
+                            html += '</div>';
+                            html += '</li>';
+                        }
+                   });
+                   if(page == 1){
+                       $('.newslist').html('');
+                   }
+                   $('.newslist').append(html);
+
+                   if(count<10){
+                       $loadMore.hide();
+                   }else{
+                       $loadMore.show();
+                   }
+                   $loadMore.data('page', page);
+               }
+
+            });
+        }
+
+      
+        
+

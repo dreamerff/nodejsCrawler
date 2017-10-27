@@ -1,0 +1,23 @@
+extends layout
+
+block css
+    link(rel='stylesheet', href='/stylesheets/detail.css')
+    
+block content
+    div.detail
+        div
+        span.title=newsdetail.title
+        span.date=newsdetail.postdate
+        div.content(data-c=newsdetail.content)
+        div#news_content
+block script
+    script.
+        $('.content').html($('.content').attr('data-c').replace(/TEXT-INDENT: 2em/g,''));
+        $('img').each(function(index,elem){
+            if($(elem).attr('_src')){
+                $(elem).attr('src',$(elem).attr('_src') )
+            }
+        });
+
+        
+

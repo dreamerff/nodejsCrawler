@@ -1,0 +1,105 @@
+.searchbox {
+  position: fixed;
+  top: 0;
+  height: 1.0667rem;
+  left: 0;
+  width: 100%;
+  background: rgba(203, 82, 43, 0.8);
+}
+.searchbox i.icon-search {
+  background: url(../images/icon-search.png);
+  width: 0.3067rem;
+  height: 0.3067rem;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+  left: 12%;
+  position: absolute;
+  top: .38rem;
+}
+.searchbox input {
+  width: 80%;
+  height: 0.8rem;
+  line-height: .8rem;
+  border-radius: .8rem;
+  font-size: 14px;
+  color: #999;
+  padding-left: .75rem;
+  display: block;
+  background: #ffffff;
+  margin-top: 0.1333rem;
+  margin-left: 10%;
+  border: none;
+  outline: none;
+}
+.searchbox input::-webkit-input-placeholder,
+.searchbox textarea::-webkit-input-placeholder {
+  color: #c1c1c1;
+}
+.searchbox input:-moz-placeholder,
+.searchbox textarea:-moz-placeholder {
+  color: #c1c1c1;
+}
+.searchbox input::-moz-placeholder,
+.searchbox textarea::-moz-placeholder {
+  color: #c1c1c1;
+}
+.searchbox input:-ms-input-placeholder,
+.searchbox textarea:-ms-input-placeholder {
+  color: #c1c1c1;
+}
+.newslist {
+  margin-top: 1.0667rem;
+  padding: 0.2rem;
+}
+.newslist li {
+  background: #fff;
+  padding: .5rem;
+}
+.newslist li img {
+  display: none;
+}
+.newslist li .title {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  line-height: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.newslist li .abstract {
+  height: 50px;
+  line-height: 25px;
+  overflow: hidden;
+}
+.newslist li .abstract {
+  text-align: justify;
+  font-size: 14px;
+  color: #666;
+}
+.newslist li .operation {
+  margin-top: 10px;
+}
+.newslist li .operation a {
+  color: #cd532a;
+}
+.newslist li .operation a + a {
+  margin-left: 20px;
+}
+.newslist li + li {
+  margin-top: .2rem;
+}
+.data-loading {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  display: none;
+}
+.data-loading i {
+  background: url(../images/loading.gif) no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
