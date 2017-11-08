@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/seeds.css')
+
+    body
+        div.container
+            div.title 添加入口链接 （多个链接请换行）
+            textarea(placeholder="请输入以http或https开头的有效链接地址")
+            button 提交
+    script(type='text/javascript', src="/javascripts/jquery.min.js")
+    script.
+        var regURL = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
+        $('button').click(function(){
+            if(value!=''){
+                var value = $('textarea').val().replace(/\n/g,',');
+                var urls = value.split(',');
+                var validUrls=[];
+                for(var i=0;i<urls.length;i++){
+                    if(regURL.test(urls[i])){
+                        validUrls.push(urls[i].trim());
+                    }
+                }
+                if(validUrls.length<urls.length){
+                    alert('请输入有效的链接地址！');
+                }else{
+                    $.getJSON('/submitSeeds?seeds=' + encodeURI(validUrls.join(',')), function(result) {
+
+                    });
+                }
+            }
+           
+        });

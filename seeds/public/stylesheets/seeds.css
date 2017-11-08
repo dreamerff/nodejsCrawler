@@ -1,0 +1,171 @@
+html {
+  background-color: #fff;
+}
+blockquote,
+body,
+button,
+dd,
+dl,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+ol,
+p,
+pre,
+select,
+textarea,
+ul {
+  margin: 0;
+}
+button,
+fieldset,
+input,
+legend,
+ol,
+select,
+td,
+textarea,
+th,
+ul {
+  padding: 0;
+}
+h1 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+small {
+  font-size: 80%;
+}
+img {
+  border: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+img {
+  border: none;
+}
+input,
+textarea {
+  outline: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+td,
+th {
+  padding: 0;
+}
+body {
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+}
+body,
+button,
+input,
+textarea {
+  font-family: PingFang SC, Microsoft YaHei, Hiragino Sans GB W3, Helvetica, Heiti SC, Droid Sans, Droidsansfallback, sans-serif;
+}
+button:focus,
+select:focus {
+  outline: none;
+}
+a,
+button,
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input {
+  border-radius: 0;
+}
+.container {
+  margin: 30px 0 0 50px;
+  width: 400px;
+}
+.container .title {
+  margin-bottom: 20px;
+  color: #e97362;
+}
+.container textarea {
+  width: 400px;
+  height: 200px;
+  border-color: #f0f0f0;
+  padding: 10px;
+  font-size: 15px;
+  color: #333;
+}
+.container button {
+  display: block;
+  color: #fff;
+  background: #e97362;
+  border: none;
+  outline: none;
+  padding: 5px 30px;
+  border-radius: 2px;
+  margin: 10px auto 0;
+}

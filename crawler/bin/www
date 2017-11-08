@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('crawler:server');
+var debug = require('debug')('webcrawler:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '6666');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -28,7 +28,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-server.setTimeout(0);
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -72,10 +72,7 @@ function onError(error) {
       console.error(bind + ' is already in use');
       process.exit(1);
       break;
-    case 'ECONNRESET':
-      console.error(bind + ' ECONNRESET');
     default:
-      console.error(error.code);
       throw error;
   }
 }

@@ -1,2 +1,5 @@
-autonews/node_modules/
-crawler/node_modules/
+.DS_Store
+crawler/node_modules
+seeds/node_modules
+npm-debug.log*
+
